@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">micreditoresources</string>
+    <string name="item_credit_amount_format">%1$s %2$s</string>
+</resources>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">EasyPav</string>
+
+    <!--           SignIn           -->
+    <string name="hint_name">Nombre completo</string>
+    <string name="hint_user">Correo electrónico</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="button_log_in">Iniciar sesión</string>
+    <string name="title_log_in">Inicio de sesión</string>
+    <string name="title_register">Registro</string>
+    <string name="button_register">Registrarse</string>
+    <string name="button_forgot_password">¿Olvidaste tu contraseña?</string>
+
+    <!-- __________________________________ -->
+
+</resources>

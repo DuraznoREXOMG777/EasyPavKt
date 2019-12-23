@@ -1,0 +1,2 @@
+include ':app', ':commonresources', ':genericrecyclerviewadapter'
+rootProject.name='EasyPavKt'
