@@ -67,7 +67,7 @@
     <data>
         <variable
             name="signInViewmodel"
-            type="com.anlh.easypav.modules.signIn.viewModel.SignInViewModel" />
+            type="com.anlh.kt.easypav.modules.signIn.viewModel.SignInVM" />
     </data>
 
 </layout>

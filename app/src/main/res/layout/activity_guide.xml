@@ -2,8 +2,8 @@
 <layout>
     <data>
         <variable
-            name="guideViewModel"
-            type="com.anlh.easypav.modules.guide.viewModel.GuideViewModel" />
+            name="guideVM"
+            type="com.anlh.kt.easypav.modules.guide.viewModel.GuideVM" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"

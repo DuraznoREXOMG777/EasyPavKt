@@ -7,6 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class EasyPavApp : Application() {
+
     private var retrofit: Retrofit? = null
     //private AppPreferenceHelper preferenceHelper;
     //private AppRoomManager roomManager;
@@ -16,7 +17,6 @@ class EasyPavApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        //registerReceiver(new ConnectionManager(), new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
         instance = this
     }
 
