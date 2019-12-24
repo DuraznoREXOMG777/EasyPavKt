@@ -39,7 +39,7 @@
             android:translationZ="1dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:background="@android:color/transparent"
+            android:background="@drawable/button_background_translucent"
             android:layout_marginEnd="12dp"
             android:text="CONTINUE"/>
 
@@ -50,7 +50,7 @@
             android:translationZ="1dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:background="@android:color/transparent"
+            android:background="@drawable/button_background_translucent"
             android:layout_marginStart="12dp"
             android:text="SKIP"/>
 

@@ -8,4 +8,8 @@
     <color name="colorFalse">#B6B8B6</color>
     <color name="colorTrue">#696B69</color>
 
+    <!-- button colors -->
+    <color name="grayButtons">#383838</color>
+
+
 </resources>

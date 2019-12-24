@@ -10,6 +10,4 @@ class Guide(val text: String, val imageUrl: String) : AppBaseItem {
         return AppConstants.GUIDE_VIEW_TYPE
     }
 
-
-
 }

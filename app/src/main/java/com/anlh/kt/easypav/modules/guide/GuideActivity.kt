@@ -3,11 +3,9 @@ package com.anlh.kt.easypav.modules.guide
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager2.widget.ViewPager2
 import com.anlh.kt.easypav.BR
-import com.anlh.kt.easypav.EasyPavApp
 import com.anlh.kt.easypav.R
 import com.anlh.kt.easypav.data.model.Guide
 import com.anlh.kt.easypav.modules.guide.view.GuideAdapter
@@ -61,9 +59,19 @@ class GuideActivity : AppBaseActivity<ActivityGuideBinding, GuideVM>() {
         TabLayoutMediator(guideBinding.tabLayout, guideBinding.viewPager){ _, _ -> }.attach()
         disableTabLayout(guideBinding.tabLayout)
 
-        guideBinding.btnContinue.setOnClickListener {
-            Toast.makeText(EasyPavApp.instance?.context, "Continue", Toast.LENGTH_SHORT).show()
+        guideBinding.btnContinue.setOnClickListener { moveNext(guideBinding.viewPager.currentItem) }
+        guideBinding.btnSkip.setOnClickListener{skip()}
+
+    }
+
+    private fun moveNext(current: Int){
+        if(current < guideBinding.viewPager.adapter?.itemCount ?: 0){
+            guideBinding.viewPager.currentItem = current+1
         }
+    }
+
+    private fun skip(){
+        guideBinding.viewPager.currentItem = guideBinding.viewPager.adapter?.itemCount?.minus(1) ?: 0
     }
 
     private fun generateDummyData(): List<AppBaseItem> {
