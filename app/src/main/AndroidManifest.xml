@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.anlh.kt.easypav">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".EasyPavApp"
         android:allowBackup="true"
@@ -10,24 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".modules.signIn.SignInActivity"></activity>
-        <activity android:name=".modules.guide.GuideActivity" />
+        <activity android:name=".modules.signIn.SignInActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".modules.guide.GuideActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".modules.splash.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".modules.home.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".modules.home.MainActivity"/>
     </application>
 
 </manifest>

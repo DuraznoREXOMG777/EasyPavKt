@@ -12,11 +12,11 @@ import com.anlh.kt.easypav.data.model.Guide
 import com.anlh.kt.easypav.util.inflate
 import com.squareup.picasso.Picasso
 
-class GuideAdapter(private val items: List<Guide>) : RecyclerView.Adapter<GuideAdapter.ViewHolder>() {
+class GuideAdapter(private val items: List<Guide>) : RecyclerView.Adapter<GuideAdapter.GuideContentVH>() {
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GuideContentVH {
+        return GuideContentVH(
             parent.inflate(
                 R.layout.item_guide,
                 false
@@ -28,13 +28,13 @@ class GuideAdapter(private val items: List<Guide>) : RecyclerView.Adapter<GuideA
         return items.size
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textGuide?.text = items[position].text
+    override fun onBindViewHolder(holder: GuideContentVH, position: Int) {
+        holder.textGuide.text = items[position].text
         Picasso.get().load(items[position].imageUrl).into(holder.imageGuide)
     }
 
 
-    class ViewHolder( itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class GuideContentVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         init {
             ButterKnife.bind(this, itemView)
@@ -46,5 +46,14 @@ class GuideAdapter(private val items: List<Guide>) : RecyclerView.Adapter<GuideA
         lateinit var imageGuide: AppCompatImageView
 
     }
+
+    class SignInContentVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        init {
+            ButterKnife.bind(this, itemView)
+        }
+
+    }
+
 }
 

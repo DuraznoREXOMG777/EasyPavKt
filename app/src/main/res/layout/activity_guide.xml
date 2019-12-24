@@ -31,6 +31,28 @@
             app:tabBackground="@drawable/tab_background_dot"
             app:tabIndicator="@null"
             app:tabGravity="center"/>
+        
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_continue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationZ="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@android:color/transparent"
+            android:layout_marginEnd="12dp"
+            android:text="CONTINUE"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationZ="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@android:color/transparent"
+            android:layout_marginStart="12dp"
+            android:text="SKIP"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
