@@ -101,7 +101,7 @@
 
     <data>
         <variable
-            name="signInViewmodel"
+            name="signInVM"
             type="com.anlh.kt.easypav.modules.signIn.viewModel.SignInVM" />
     </data>
 

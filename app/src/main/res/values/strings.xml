@@ -13,4 +13,14 @@
 
     <!-- __________________________________ -->
 
+    <string name="button_skip">SALTAR</string>
+    <string name="button_continue">CONTINUAR</string>
+    <string name="button_finish">TERMINAR</string>
+
+    <!-- __________________________________ -->
+
+    <string name="button_join_us">Registrate</string>
+    <string name="label_join_us">¿Aún no te has registrado?</string>
+    <string name="button_continue_without_login">Continuar sin iniciar sesión</string>
+
 </resources>

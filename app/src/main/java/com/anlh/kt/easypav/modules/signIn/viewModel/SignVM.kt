@@ -1,17 +1,22 @@
 package com.anlh.kt.easypav.modules.signIn.viewModel
 
 import android.view.View
-import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
-import androidx.databinding.library.baseAdapters.BR
-import com.google.android.material.textfield.TextInputEditText
 import com.highflyers.commonresources.AppBaseViewModel
 
+class SignVM:AppBaseViewModel() {
 
-class SignInVM : AppBaseViewModel() {
+    val email = String()
+    val password = String()
+
     override fun init() {
+    }
+
+    fun onSignInClick(){
 
     }
 
+    fun onRegisterClick(){
 
+    }
 }

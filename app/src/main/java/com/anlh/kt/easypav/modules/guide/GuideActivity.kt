@@ -1,16 +1,22 @@
 package com.anlh.kt.easypav.modules.guide
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.opengl.Visibility
 import android.os.Bundle
+import android.view.View
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager2.widget.ViewPager2
 import com.anlh.kt.easypav.BR
+import com.anlh.kt.easypav.EasyPavApp
 import com.anlh.kt.easypav.R
 import com.anlh.kt.easypav.data.model.Guide
 import com.anlh.kt.easypav.modules.guide.view.GuideAdapter
 import com.anlh.kt.easypav.databinding.ActivityGuideBinding
 import com.anlh.kt.easypav.modules.guide.viewModel.GuideVM
+import com.anlh.kt.easypav.modules.signIn.SignInActivity
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.highflyers.commonresources.AppBaseActivity
@@ -62,12 +68,25 @@ class GuideActivity : AppBaseActivity<ActivityGuideBinding, GuideVM>() {
         guideBinding.btnContinue.setOnClickListener { moveNext(guideBinding.viewPager.currentItem) }
         guideBinding.btnSkip.setOnClickListener{skip()}
 
+        guideBinding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                if( position >=  guideBinding.viewPager.adapter?.itemCount?.minus(1) ?: 0){
+                    guideBinding.btnContinue.text = resources.getText(R.string.button_finish)
+                    guideBinding.btnSkip.visibility = View.INVISIBLE
+                }else{
+                    guideBinding.btnSkip.visibility = View.VISIBLE
+                    guideBinding.btnContinue.text = resources.getText(R.string.button_continue)
+                }
+            }
+        })
+
     }
 
     private fun moveNext(current: Int){
-        if(current < guideBinding.viewPager.adapter?.itemCount ?: 0){
+        if(current < guideBinding.viewPager.adapter?.itemCount ?: 0)
             guideBinding.viewPager.currentItem = current+1
-        }
+        else if(guideBinding.btnContinue.text == resources.getText(R.string.button_finish))
+            startActivity(Intent(this@GuideActivity, SignInActivity::class.java))
     }
 
     private fun skip(){
@@ -90,3 +109,5 @@ class GuideActivity : AppBaseActivity<ActivityGuideBinding, GuideVM>() {
             tabStrip.getChildAt(i).setOnTouchListener { _, _ -> true}
     }
 }
+
+

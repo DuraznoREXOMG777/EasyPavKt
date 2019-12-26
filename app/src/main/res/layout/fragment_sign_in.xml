@@ -9,6 +9,16 @@
         android:layout_height="match_parent"
         tools:context=".modules.signIn.SignInActivity">
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background_translucent"
+            android:text="@string/button_continue_without_login"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image_logo"
             android:layout_width="wrap_content"
@@ -36,6 +46,7 @@
             android:layout_marginTop="96dp"
             android:layout_marginHorizontal="24dp"
             android:layout_marginBottom="12dp"
+            app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/image_logo">
@@ -43,7 +54,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="16dp"
+                android:text="@{signVM.email}"
+                android:paddingStart="16dp"
                 android:hint="@string/hint_user"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -55,6 +67,7 @@
             app:passwordToggleEnabled="true"
             android:layout_marginHorizontal="24dp"
             android:layout_marginTop="12dp"
+            app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_user">
@@ -62,7 +75,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="16dp"
+                android:text="@{signVM.password}"
+                android:paddingStart="16dp"
                 android:hint="@string/hint_password"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -83,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="24dp"
             android:layout_marginTop="8dp"
-            style="@style/AppButtonBase"
+            android:onClick="@{() -> signVM.onSignInClick()}"
             android:text="@string/button_log_in"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -135,7 +149,7 @@
             android:layout_marginBottom="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintBottom_toTopOf="@id/button_register">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="0dp"
@@ -152,12 +166,33 @@
 
         </LinearLayout>
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_not_registered"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/label_join_us"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/button_register"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_join_us"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/button_background_translucent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <data>
         <variable
-            name="signInViewmodel"
-            type="com.anlh.kt.easypav.modules.signIn.viewModel.SignInVM" />
+            name="signVM"
+            type="com.anlh.kt.easypav.modules.signIn.viewModel.SignVM" />
     </data>
 
 </layout>

@@ -42,7 +42,6 @@ class EasyPavApp : Application() {
     }
 
     companion object {
-
         @get:Synchronized
         var instance: EasyPavApp? = null
             private set
