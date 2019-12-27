@@ -8,7 +8,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class EasyPavApp : Application() {
 
-    private var retrofit: Retrofit? = null
     //private AppPreferenceHelper preferenceHelper;
     //private AppRoomManager roomManager;
 
@@ -20,25 +19,20 @@ class EasyPavApp : Application() {
         instance = this
     }
 
-    fun getRetrofit(): Retrofit {
-        if (retrofit == null) {
-            val okHttpClient = OkHttpClient.Builder()
-                    .addInterceptor { chain ->
-                        val request = chain.request()
-                        val builder = request.newBuilder()
-                        builder.method(request.method(), request.body())
-                        builder.header("Content-Type", "application/json")
-                        chain.proceed(builder.build())
-                    }.build()
-            retrofit = Retrofit.Builder()
-                    .baseUrl(BuildConfig.BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .client(okHttpClient)
-                    .build()
-            return retrofit as Retrofit
-        } else {
-            return retrofit as Retrofit
-        }
+    val retrofitInstance: Retrofit by lazy {
+        val okHttpClient = OkHttpClient.Builder()
+            .addInterceptor { chain ->
+                val request = chain.request()
+                val builder = request.newBuilder()
+                builder.method(request.method(), request.body())
+                builder.header("Content-Type", "application/json")
+                chain.proceed(builder.build())
+            }.build()
+        Retrofit.Builder()
+            .baseUrl(BuildConfig.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
+            .build()
     }
 
     companion object {

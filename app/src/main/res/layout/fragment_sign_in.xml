@@ -9,11 +9,12 @@
         android:layout_height="match_parent"
         tools:context=".modules.signIn.SignInActivity">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/button_background_translucent"
             android:text="@string/button_continue_without_login"
+            android:onClick="@{() -> signVM.skipLogin()}"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="12dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -181,6 +182,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_join_us"
+            android:onClick="@{() -> signVM.onRegisterClick()}"
             android:layout_marginBottom="24dp"
             android:background="@drawable/button_background_translucent"
             app:layout_constraintEnd_toEndOf="parent"

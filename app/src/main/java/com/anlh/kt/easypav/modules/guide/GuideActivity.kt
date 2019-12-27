@@ -42,7 +42,6 @@ class GuideActivity : AppBaseActivity<ActivityGuideBinding, GuideVM>() {
     }
 
     override fun onFragmentAttached() {
-
     }
 
     override fun getLayoutId(): Int {
@@ -50,7 +49,6 @@ class GuideActivity : AppBaseActivity<ActivityGuideBinding, GuideVM>() {
     }
 
     override fun onFragmentDetached(tag: String?) {
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +57,7 @@ class GuideActivity : AppBaseActivity<ActivityGuideBinding, GuideVM>() {
         setupView()
     }
 
-    fun setupView(){
+    private fun setupView(){
         guideBinding.viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         guideBinding.viewPager.adapter = GuideAdapter(items = generateDummyData() as List<Guide>)
         TabLayoutMediator(guideBinding.tabLayout, guideBinding.viewPager){ _, _ -> }.attach()
@@ -83,7 +81,7 @@ class GuideActivity : AppBaseActivity<ActivityGuideBinding, GuideVM>() {
     }
 
     private fun moveNext(current: Int){
-        if(current < guideBinding.viewPager.adapter?.itemCount ?: 0)
+        if(current < guideBinding.viewPager.adapter?.itemCount?.minus(1) ?: 0)
             guideBinding.viewPager.currentItem = current+1
         else if(guideBinding.btnContinue.text == resources.getText(R.string.button_finish))
             startActivity(Intent(this@GuideActivity, SignInActivity::class.java))
@@ -109,5 +107,3 @@ class GuideActivity : AppBaseActivity<ActivityGuideBinding, GuideVM>() {
             tabStrip.getChildAt(i).setOnTouchListener { _, _ -> true}
     }
 }
-
-

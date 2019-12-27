@@ -29,8 +29,8 @@ class GuideAdapter(private val items: List<Guide>) : RecyclerView.Adapter<GuideA
     }
 
     override fun onBindViewHolder(holder: GuideContentVH, position: Int) {
-        holder.textGuide.text = items[position].text
         Picasso.get().load(items[position].imageUrl).into(holder.imageGuide)
+        holder.textContent.text = items[position].text
     }
 
 
@@ -40,18 +40,10 @@ class GuideAdapter(private val items: List<Guide>) : RecyclerView.Adapter<GuideA
             ButterKnife.bind(this, itemView)
         }
 
-        @BindView(R.id.text_guide)
-        lateinit var textGuide: AppCompatTextView
         @BindView(R.id.image_guide)
         lateinit var imageGuide: AppCompatImageView
-
-    }
-
-    class SignInContentVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        init {
-            ButterKnife.bind(this, itemView)
-        }
+        @BindView(R.id.text_content)
+        lateinit var textContent: AppCompatTextView
 
     }
 

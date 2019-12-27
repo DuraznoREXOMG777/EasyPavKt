@@ -1,12 +1,17 @@
 package com.anlh.kt.easypav.modules.signIn
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
 import com.anlh.kt.easypav.BR
 import com.anlh.kt.easypav.R
 import com.anlh.kt.easypav.core.SignInCommunicator
 import com.anlh.kt.easypav.databinding.ActivitySignInBinding
+import com.anlh.kt.easypav.modules.home.MainActivity
+import com.anlh.kt.easypav.modules.signIn.view.RegisterFragment
+import com.anlh.kt.easypav.modules.signIn.view.SignInFragment
 import com.anlh.kt.easypav.modules.signIn.viewModel.SignInVM
+import com.anlh.kt.easypav.util.AppConstants
 import com.highflyers.commonresources.AppBaseActivity
 
 class SignInActivity : AppBaseActivity<ActivitySignInBinding, SignInVM>(), SignInCommunicator {
@@ -38,14 +43,19 @@ class SignInActivity : AppBaseActivity<ActivitySignInBinding, SignInVM>(), SignI
     }
 
     override fun getFragmentContainerId(): Int {
-        return R.id.frame_sign_in
+        return R.id.fragment_container
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        addFragment(SignInFragment(), AppConstants.FRAGMENT_SIGN_IN_TAG)
     }
 
     override fun onRegisterButtonClicked() {
+        replaceFragment(RegisterFragment(), AppConstants.FRAGMENT_REGISTER_TAG)
+    }
 
+    override fun onSkipButtonClicked() {
+        startActivity(Intent(this@SignInActivity, MainActivity::class.java))
     }
 }
