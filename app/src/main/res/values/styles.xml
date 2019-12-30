@@ -19,4 +19,9 @@
 
     </style>
 
+    <style name="AppDialogMessage" parent="@style/AppTextViewContentBase.FontLight">
+        <item name="android:textSize">@dimen/font_size_body_small</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
 </resources>

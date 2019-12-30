@@ -23,7 +23,7 @@ android {
             buildConfigField("String", "BASE_URL", "\"https://api.foursquare.com/\"")
         }
         debug {
-            buildConfigField("String", "BASE_URL", "\"http://localhost:8080\"")
+            buildConfigField("String", "BASE_URL", "\"http://192.168.0.6:8080/\"")
         }
     }
     dataBinding {
@@ -37,6 +37,13 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Room components
+    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    implementation "androidx.room:room-ktx:$rootProject.roomVersion"
+    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+    androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.1.0'
@@ -45,18 +52,18 @@ dependencies {
     implementation "androidx.viewpager2:viewpager2:1.0.0"
 
     // Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
 
     // ButterKnife
     implementation 'com.jakewharton:butterknife:10.1.0'
     kapt 'com.jakewharton:butterknife-compiler:10.1.0'
 
-    def lifecycle_version = '2.1.0'
     // ViewModel and LiveData
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycle_version"
     // alternately - if using Java8, use the following instead of lifecycle-compiler
-    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.kt_lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.kt_lifecycle_version"
 
 
     implementation 'com.squareup.picasso:picasso:2.71828'

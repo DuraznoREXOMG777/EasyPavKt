@@ -23,4 +23,9 @@
     <string name="label_join_us">¿Aún no te has registrado?</string>
     <string name="button_continue_without_login">Continuar sin iniciar sesión</string>
 
+    <!-- App Dialog Fragment -->
+    <string name="app_dialog_ok">Aceptar</string>
+    <string name="app_dialog_sign_up_password_sent_success">Tu contraseña será enviada al correo que registraste al momento de solicitar tu crédito.</string>
+    <string name="app_dialog_sign_up_password_sent">Tu contraseña será enviada al correo registrado.</string>
+
 </resources>

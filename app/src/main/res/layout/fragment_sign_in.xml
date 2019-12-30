@@ -55,7 +55,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{signVM.email}"
+                android:text="@={signVM.email}"
                 android:paddingStart="16dp"
                 android:hint="@string/hint_user"/>
 
@@ -76,7 +76,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{signVM.password}"
+                android:text="@={signVM.password}"
+                android:inputType="textPassword"
                 android:paddingStart="16dp"
                 android:hint="@string/hint_password"/>
 

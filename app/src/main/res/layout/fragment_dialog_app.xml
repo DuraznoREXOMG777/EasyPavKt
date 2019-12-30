@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@android:color/transparent">
+
+        <ProgressBar
+            android:id="@+id/app_dialog_progress_bar"
+            android:layout_width="@dimen/progress_dialog_size"
+            android:layout_height="@dimen/progress_dialog_size"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:indeterminate="true"
+            android:visibility="gone" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/app_dialog_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/app_margin_medium"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="@dimen/app_margin_medium"
+            android:background="@drawable/bg_app_dialog">
+
+            <TextView
+                android:id="@+id/app_dialog_message"
+                style="@style/AppDialogMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/app_margin_medium"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="@dimen/app_margin_medium"
+                android:text="@string/app_dialog_sign_up_password_sent_success"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/app_dialog_action_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/app_margin_small"
+                android:layout_marginBottom="24dp"
+                android:text="@string/app_dialog_ok"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/app_dialog_message"
+                app:layout_constraintStart_toStartOf="@+id/app_dialog_message"
+                app:layout_constraintTop_toBottomOf="@+id/app_dialog_message" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/app_dialog_icon_status"
+            android:layout_width="@dimen/app_dialog_icon_size"
+            android:layout_height="@dimen/app_dialog_icon_size"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            app:srcCompat="@drawable/ic_dialog_success" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
