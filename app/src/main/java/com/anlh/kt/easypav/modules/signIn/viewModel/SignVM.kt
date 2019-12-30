@@ -1,6 +1,7 @@
 package com.anlh.kt.easypav.modules.signIn.viewModel
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.anlh.kt.easypav.core.SignInCommunicator
 import com.anlh.kt.easypav.data.model.LoginRequest
@@ -12,22 +13,26 @@ class SignVM : AppBaseViewModel() {
 
     lateinit var listener: SignInCommunicator
     private val userRepository = UserRepository()
-    var email = String()
-    var password = String()
+    var email = "contacto.anlh@gmail.com"
+    var password = "1lseplax"
+
+    private val loading = MutableLiveData<Boolean>()
+
+    val _loading: LiveData<Boolean>
+        get() = loading
 
     override fun init() {
 
     }
 
     fun onSignInClick() {
-        setLoadingData(true)
+        loading.postValue(true)
         viewModelScope.launch {
             val response = userRepository.getLogin(LoginRequest(email, password))
+            loading.postValue(false)
             if(response.isSuccessful){
-                var loginResponse = response.body()
-                listener.onLoginSuccessfull()
+                listener.onLoginSuccessfull(response.body()!!)
             }
-            setLoadingData(false)
         }
     }
 
@@ -39,5 +44,4 @@ class SignVM : AppBaseViewModel() {
         listener.onSkipButtonClicked()
     }
 
-    fun getSignInResponse() = signInResponse as LiveData<Boolean>
 }

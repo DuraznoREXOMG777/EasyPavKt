@@ -2,12 +2,14 @@ package com.anlh.kt.easypav.modules.signIn
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.anlh.kt.easypav.BR
 import com.anlh.kt.easypav.R
 import com.anlh.kt.easypav.core.AppUtil
 import com.anlh.kt.easypav.core.SignInCommunicator
+import com.anlh.kt.easypav.data.model.LoginResponse
 import com.anlh.kt.easypav.databinding.ActivitySignInBinding
 import com.anlh.kt.easypav.modules.home.MainActivity
 import com.anlh.kt.easypav.modules.signIn.view.RegisterFragment
@@ -16,6 +18,7 @@ import com.anlh.kt.easypav.modules.signIn.viewModel.SignInVM
 import com.anlh.kt.easypav.modules.signIn.viewModel.SignVM
 import com.anlh.kt.easypav.util.AppConstants
 import com.anlh.kt.easypav.util.views.AppDialogFragment
+import com.google.gson.Gson
 import com.highflyers.commonresources.AppBaseActivity
 
 class SignInActivity : AppBaseActivity<ActivitySignInBinding, SignVM>(), SignInCommunicator {
@@ -33,7 +36,6 @@ class SignInActivity : AppBaseActivity<ActivitySignInBinding, SignVM>(), SignInC
     }
 
     override fun onFragmentAttached() {
-
     }
 
     override fun getLayoutId(): Int {
@@ -55,14 +57,12 @@ class SignInActivity : AppBaseActivity<ActivitySignInBinding, SignVM>(), SignInC
         super.onCreate(savedInstanceState)
         AppUtil.appPreferencesHelper.setFirstOpen(false)
         addFragment(SignInFragment(), AppConstants.FRAGMENT_SIGN_IN_TAG)
-        setupObservers()
-    }
-
-    private fun setupObservers() {
-        viewModel.isLoadingData.observe(this, Observer{
-            showLoader(it)
+        viewModel._loading.observe(this, Observer {
+            if(it)
+                Toast.makeText(this, "$it", Toast.LENGTH_SHORT).show()
         })
     }
+
 
     private fun showLoader(isLoading: Boolean) = if(isLoading){
         appDialogFragment = AppDialogFragment.newInstance(AppConstants.DIALOG_TYPE_LOADER)
@@ -80,7 +80,7 @@ class SignInActivity : AppBaseActivity<ActivitySignInBinding, SignVM>(), SignInC
         startActivity(Intent(this@SignInActivity, MainActivity::class.java))
     }
 
-    override fun onLoginSuccessfull() {
-        startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+    override fun onLoginSuccessfull(loginResponse: LoginResponse) {
+        startActivity(Intent(this@SignInActivity, MainActivity::class.java).putExtra("ETS", Gson().toJson(loginResponse)))
     }
 }

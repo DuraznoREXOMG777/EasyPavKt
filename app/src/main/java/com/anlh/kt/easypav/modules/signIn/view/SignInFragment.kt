@@ -38,9 +38,9 @@ class SignInFragment: AppBaseFragment<FragmentSignInBinding, SignVM>() {
     }
 
     private fun setupObservers(){
-        viewModel.getSignInResponse().observe(viewLifecycleOwner, Observer {
-            if(it)
-                Toast.makeText(context, "$it", Toast.LENGTH_SHORT).show()
+        viewModel._loading.observe(viewLifecycleOwner, Observer {
+//            if(it)
+                //Toast.makeText(context, "$it", Toast.LENGTH_SHORT).show()
         })
     }
 }

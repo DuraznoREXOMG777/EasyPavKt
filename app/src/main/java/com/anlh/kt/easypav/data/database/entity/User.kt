@@ -1,5 +1,6 @@
 package com.anlh.kt.easypav.data.database.entity
 
-data class User {
+import androidx.room.Entity
 
-}
+@Entity
+data class User(val name: String)
