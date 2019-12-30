@@ -14,7 +14,6 @@ import com.anlh.kt.easypav.databinding.ActivitySignInBinding
 import com.anlh.kt.easypav.modules.home.MainActivity
 import com.anlh.kt.easypav.modules.signIn.view.RegisterFragment
 import com.anlh.kt.easypav.modules.signIn.view.SignInFragment
-import com.anlh.kt.easypav.modules.signIn.viewModel.SignInVM
 import com.anlh.kt.easypav.modules.signIn.viewModel.SignVM
 import com.anlh.kt.easypav.util.AppConstants
 import com.anlh.kt.easypav.util.views.AppDialogFragment
@@ -57,19 +56,17 @@ class SignInActivity : AppBaseActivity<ActivitySignInBinding, SignVM>(), SignInC
         super.onCreate(savedInstanceState)
         AppUtil.appPreferencesHelper.setFirstOpen(false)
         addFragment(SignInFragment(), AppConstants.FRAGMENT_SIGN_IN_TAG)
-        viewModel._loading.observe(this, Observer {
-            if(it)
-                Toast.makeText(this, "$it", Toast.LENGTH_SHORT).show()
-        })
+
     }
 
-
-    private fun showLoader(isLoading: Boolean) = if(isLoading){
-        appDialogFragment = AppDialogFragment.newInstance(AppConstants.DIALOG_TYPE_LOADER)
-        appDialogFragment?.show(supportFragmentManager, AppConstants.FRAGMENT_DIALOG_TAG)
-    }else{
-        appDialogFragment?.dismiss()
-        appDialogFragment = null
+    override fun showLoader(isLoading: Boolean) {
+        if(isLoading){
+            appDialogFragment = AppDialogFragment.newInstance(AppConstants.DIALOG_TYPE_LOADER)
+            appDialogFragment?.show(supportFragmentManager, AppConstants.FRAGMENT_DIALOG_TAG)
+        }else{
+            appDialogFragment?.dismiss()
+            appDialogFragment = null
+        }
     }
 
     override fun onRegisterButtonClicked() {
@@ -80,7 +77,7 @@ class SignInActivity : AppBaseActivity<ActivitySignInBinding, SignVM>(), SignInC
         startActivity(Intent(this@SignInActivity, MainActivity::class.java))
     }
 
-    override fun onLoginSuccessfull(loginResponse: LoginResponse) {
+    override fun onLoginSuccessful(loginResponse: LoginResponse) {
         startActivity(Intent(this@SignInActivity, MainActivity::class.java).putExtra("ETS", Gson().toJson(loginResponse)))
     }
 }

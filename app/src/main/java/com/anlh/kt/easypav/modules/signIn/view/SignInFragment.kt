@@ -2,14 +2,12 @@ package com.anlh.kt.easypav.modules.signIn.view
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.anlh.kt.easypav.BR
 import com.anlh.kt.easypav.R
 import com.anlh.kt.easypav.core.SignInCommunicator
 import com.anlh.kt.easypav.databinding.FragmentSignInBinding
-import com.anlh.kt.easypav.modules.signIn.viewModel.SignInVM
 import com.anlh.kt.easypav.modules.signIn.viewModel.SignVM
 import com.highflyers.commonresources.AppBaseFragment
 
@@ -33,14 +31,5 @@ class SignInFragment: AppBaseFragment<FragmentSignInBinding, SignVM>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.listener = this.baseActivity as SignInCommunicator
-
-        setupObservers()
-    }
-
-    private fun setupObservers(){
-        viewModel._loading.observe(viewLifecycleOwner, Observer {
-//            if(it)
-                //Toast.makeText(context, "$it", Toast.LENGTH_SHORT).show()
-        })
     }
 }

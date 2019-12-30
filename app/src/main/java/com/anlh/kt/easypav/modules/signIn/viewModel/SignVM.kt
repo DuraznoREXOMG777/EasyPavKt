@@ -26,12 +26,12 @@ class SignVM : AppBaseViewModel() {
     }
 
     fun onSignInClick() {
-        loading.postValue(true)
+        listener.showLoader(true)
         viewModelScope.launch {
             val response = userRepository.getLogin(LoginRequest(email, password))
-            loading.postValue(false)
+            listener.showLoader(false)
             if(response.isSuccessful){
-                listener.onLoginSuccessfull(response.body()!!)
+                listener.onLoginSuccessful(response.body()!!)
             }
         }
     }
