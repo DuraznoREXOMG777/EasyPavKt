@@ -7,4 +7,5 @@ interface SignInCommunicator {
     fun onSkipButtonClicked()
     fun onLoginSuccessful(loginResponse: LoginResponse)
     fun showLoader(isLoading:Boolean)
+    fun showDialog(type:Int, message:String)
 }

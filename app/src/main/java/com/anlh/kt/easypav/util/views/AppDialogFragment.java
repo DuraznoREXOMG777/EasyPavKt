@@ -78,7 +78,6 @@ public class AppDialogFragment extends DialogFragment {
 
     @OnClick(R.id.app_dialog_action_button)
     public void appDialogActionButtonPressed() {
-        boolean reset = getArguments().getBoolean(AppConstants.APP_DIALOG_PARAM_RESET, false);
         getDialog().dismiss();
     }
 
@@ -95,6 +94,13 @@ public class AppDialogFragment extends DialogFragment {
             appDialogProgressBar.setVisibility(View.GONE);
             appDialogMessage.setText(message);
             appDialogIconStatus.setImageResource(R.drawable.ic_dialog_error);
+        } else if (type == AppConstants.DIALOG_TYPE_SUCCESS){
+            String message = getArguments().getString(AppConstants.APP_DIALOG_PARAM_MESSAGE, "");
+            appDialogContainer.setVisibility(View.VISIBLE);
+            appDialogIconStatus.setVisibility(View.VISIBLE);
+            appDialogProgressBar.setVisibility(View.GONE);
+            appDialogMessage.setText(message);
+            appDialogIconStatus.setImageResource(R.drawable.ic_dialog_success);
         }
 
     }

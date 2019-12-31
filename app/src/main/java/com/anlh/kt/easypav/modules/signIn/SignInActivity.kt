@@ -69,15 +69,22 @@ class SignInActivity : AppBaseActivity<ActivitySignInBinding, SignVM>(), SignInC
         }
     }
 
+    override fun showDialog(type: Int, message: String) {
+        appDialogFragment = AppDialogFragment.newInstance(type, message)
+        appDialogFragment?.show(supportFragmentManager, AppConstants.FRAGMENT_DIALOG_TAG)
+    }
+
     override fun onRegisterButtonClicked() {
         replaceFragment(RegisterFragment(), AppConstants.FRAGMENT_REGISTER_TAG)
     }
 
     override fun onSkipButtonClicked() {
-        startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+        startActivity(Intent(this@SignInActivity, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     }
 
     override fun onLoginSuccessful(loginResponse: LoginResponse) {
-        startActivity(Intent(this@SignInActivity, MainActivity::class.java).putExtra("ETS", Gson().toJson(loginResponse)))
+        startActivity(Intent(this@SignInActivity, MainActivity::class.java)
+            .putExtra("ETS", Gson().toJson(loginResponse))
+            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     }
 }
