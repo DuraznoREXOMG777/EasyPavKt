@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/image_logo"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="48dp"
             android:layout_marginStart="24dp"
             android:textSize="24sp"
             android:text="@string/title_register"/>
@@ -35,7 +35,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="96dp"
             android:layout_marginHorizontal="24dp"
-            android:layout_marginBottom="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/image_logo">
@@ -43,17 +42,18 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={signVM.name}"
                 android:paddingStart="16dp"
                 android:hint="@string/hint_name"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_user"
+            android:id="@+id/text_last_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:layout_marginHorizontal="24dp"
-            android:layout_marginBottom="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_name">
@@ -61,8 +61,28 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="16dp"
-                android:hint="@string/hint_user"/>
+                android:text="@={signVM.lastName}"
+                android:paddingStart="16dp"
+                android:hint="@string/hint_last_name"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_user"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginHorizontal="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_last_name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={signVM.email}"
+                android:hint="@string/hint_user"
+                android:paddingLeft="16dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,7 +92,7 @@
             android:layout_height="wrap_content"
             app:passwordToggleEnabled="true"
             android:layout_marginHorizontal="24dp"
-
+            android:layout_marginTop="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_user">
@@ -80,6 +100,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={signVM.password}"
+                android:inputType="textPassword"
                 android:paddingLeft="16dp"
                 android:hint="@string/hint_password"/>
 
@@ -89,7 +111,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="48dp"
             style="@style/AppButtonBase"
             android:text="@string/button_register"
             app:layout_constraintStart_toStartOf="parent"
@@ -101,8 +123,8 @@
 
     <data>
         <variable
-            name="signInVM"
-            type="com.anlh.kt.easypav.modules.signIn.viewModel.SignInVM" />
+            name="signVM"
+            type="com.anlh.kt.easypav.modules.signIn.viewModel.SignVM" />
     </data>
 
 </layout>

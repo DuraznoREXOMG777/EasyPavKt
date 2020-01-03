@@ -2,14 +2,11 @@ package com.anlh.kt.easypav.modules.signIn
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.anlh.kt.easypav.BR
 import com.anlh.kt.easypav.R
 import com.anlh.kt.easypav.core.AppUtil
 import com.anlh.kt.easypav.core.SignInCommunicator
-import com.anlh.kt.easypav.data.model.LoginResponse
 import com.anlh.kt.easypav.databinding.ActivitySignInBinding
 import com.anlh.kt.easypav.modules.home.MainActivity
 import com.anlh.kt.easypav.modules.signIn.view.RegisterFragment
@@ -82,9 +79,8 @@ class SignInActivity : AppBaseActivity<ActivitySignInBinding, SignVM>(), SignInC
         startActivity(Intent(this@SignInActivity, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     }
 
-    override fun onLoginSuccessful(loginResponse: LoginResponse) {
+    override fun onLoginSuccessful() {
         startActivity(Intent(this@SignInActivity, MainActivity::class.java)
-            .putExtra("ETS", Gson().toJson(loginResponse))
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     }
 }

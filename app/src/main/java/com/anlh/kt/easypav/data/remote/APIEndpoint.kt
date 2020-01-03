@@ -1,11 +1,10 @@
 package com.anlh.kt.easypav.data.remote
 
+import com.anlh.kt.easypav.data.database.entity.User
 import com.anlh.kt.easypav.data.model.LoginRequest
-import com.anlh.kt.easypav.data.model.LoginResponse
-import retrofit2.Call
+import com.anlh.kt.easypav.data.model.RegisterRequest
 import retrofit2.Response
 import retrofit2.http.Body
-import retrofit2.http.GET
 import retrofit2.http.POST
 
 class APIEndpoint {
@@ -13,7 +12,10 @@ class APIEndpoint {
     interface UserService {
 
         @POST("/users/login")
-        suspend fun getLogin(@Body loginRequest: LoginRequest): Response<LoginResponse>
+        suspend fun getLogin(@Body loginRequest: LoginRequest): Response<User>
+
+        @POST("/users/register")
+        suspend fun tryRegister(@Body registerRequest: RegisterRequest): Response<User>
 
     }
 

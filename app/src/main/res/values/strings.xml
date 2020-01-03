@@ -2,7 +2,8 @@
     <string name="app_name">EasyPav</string>
 
     <!--           SignIn           -->
-    <string name="hint_name">Nombre completo</string>
+    <string name="hint_name">Nombre </string>
+    <string name="hint_last_name">Apellido</string>
     <string name="hint_user">Correo electrónico</string>
     <string name="hint_password">Contraseña</string>
     <string name="button_log_in">Iniciar sesión</string>
