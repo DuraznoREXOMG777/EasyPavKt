@@ -4,7 +4,8 @@ import com.anlh.kt.easypav.R
 
 object AppConstants {
 
-    const val GUIDE_VIEW_TYPE = R.layout.item_guide
+    const val GUIDE_VIEW_INIT = R.layout.item_title
+    const val GUIDE_VIEW_RESUME = R.layout.item_guide
 
     const val FRAGMENT_REGISTER_TAG: String = "RegisterFragment"
     const val FRAGMENT_SIGN_IN_TAG: String = "SignInFragment"

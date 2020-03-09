@@ -28,5 +28,16 @@
     <string name="app_dialog_ok">Aceptar</string>
     <string name="app_dialog_sign_up_password_sent_success">Tu contraseña será enviada al correo que registraste al momento de solicitar tu crédito.</string>
     <string name="app_dialog_sign_up_password_sent">Tu contraseña será enviada al correo registrado.</string>
+    <string name="text_sign_in_with">Inicia sesión con...</string>
+
+    <string name="facebook_app_id">2770390693193650</string> <string name="fb_login_protocol_scheme">fb2770390693193650</string>
+    <string name="sign_in_with_facebook">Inicia Sesión con Facebook</string>
+    <string name="text_sign_in_with_google">Inicia Sesión con Google</string>
+
+
+    <string name="text_what_is_easy_pav"><font color='#2C2C2C'>¿Qué es </font><font color='#F4B93B'>EasyPav</font><font color='#2C2C2C'>?</font></string>
+    <string name="text_lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis diam varius, lobortissapien nec, mollis enim. Fusce eget variusmi. Nunc lacinia porta nibh, sit amet rhoncus sapien aliquet non. Etiam aliquet eros sed diam finibus, id eleifend mi venenatis. Fusce vel magna eget eros fringilla tempus eget at nibh. Phasellus maximus lacus eu lacus condimentum commodo.\n\n Maecenas diam felis, semper et gravida id, imperdiet vitae quam. Praesent tincidunt porta diam, sit amet elementum leo sagittis eu.\n\n Vivamus at faucibus ante. Aliquam at condimentum est. Quisque tristique posuere pellentesque. Phasellus urna nunc, interdum vitae faucibus eget, faucibus sit amet augue. Praesent et efficitur est. In ut ante leo.</string>
+    <string name="text_how_it_works">¿Cómo funciona?</string>
+
 
 </resources>

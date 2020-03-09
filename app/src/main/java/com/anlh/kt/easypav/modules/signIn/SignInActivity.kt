@@ -83,4 +83,10 @@ class SignInActivity : AppBaseActivity<ActivitySignInBinding, SignVM>(), SignInC
         startActivity(Intent(this@SignInActivity, MainActivity::class.java)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if(supportFragmentManager.backStackEntryCount < 2)
+            this.finish()
+    }
 }

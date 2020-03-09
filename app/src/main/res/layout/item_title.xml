@@ -14,14 +14,31 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/sf_ui_display_black"
-        android:text="@string/text_how_it_works"
+        android:text="@string/text_what_is_easy_pav"
         android:textSize="30sp"
         android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
-
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/sf_ui_display_light"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:text="@string/text_lorem"
+        android:textColor="@color/color_text_black"
+        android:translationZ="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_guide_title" />
+    
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="190dp"
         android:layout_height="190dp"

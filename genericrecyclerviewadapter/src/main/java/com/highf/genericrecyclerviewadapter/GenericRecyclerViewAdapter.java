@@ -63,7 +63,7 @@ public abstract class GenericRecyclerViewAdapter<T, L extends BaseRecyclerListen
      * To be implemented in as specific adapter.
      * Here you should return new ViewHolder instance.
      * You may also return different ViewHolders according to a view contentType.
-     * In this case you shoulf also override {@link RecyclerView.Adapter#getItemViewType(int)}
+     * In this case you should also override {@link RecyclerView.Adapter#getItemViewType(int)}
      *
      * @param parent   The ViewGroup into which the new View will be added after it is bound to an adapter position.
      * @param viewType The view contentType of the new View.
@@ -115,7 +115,7 @@ public abstract class GenericRecyclerViewAdapter<T, L extends BaseRecyclerListen
      * DiffUtil in order to delegate it do all the updating job.
      *
      * @param items         items to set to the adapter
-     * @param notifyChanges pass in <code>true</code> to call notifiDatasetChanged {@link RecyclerView.Adapter#notifyDataSetChanged()} or <code>false</code> otherwise
+     * @param notifyChanges pass in <code>true</code> to call notifyDataSetChanged {@link RecyclerView.Adapter#notifyDataSetChanged()} or <code>false</code> otherwise
      * @throws IllegalArgumentException in case of setting `null` items
      */
     public void setItems(List<T> items, boolean notifyChanges) throws IllegalArgumentException {

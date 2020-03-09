@@ -9,55 +9,43 @@
         android:layout_height="match_parent"
         tools:context=".modules.signIn.SignInActivity">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_background_translucent"
-            android:text="@string/button_continue_without_login"
-            android:onClick="@{() -> signVM.skipLogin()}"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/image_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/image_sign_logo"
+            android:layout_width="159dp"
+            android:layout_height="163dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="96dp"
-            app:srcCompat="@mipmap/ic_launcher"/>
+            android:layout_marginTop="48dp"
+            app:srcCompat="@drawable/easy_pav_logo"/>
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/image_logo"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="64dp"
             android:layout_marginStart="24dp"
+            android:text="@string/title_log_in"
             android:textSize="24sp"
-            android:text="@string/title_log_in"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_sign_logo" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_user"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="96dp"
             android:layout_marginHorizontal="24dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginTop="24dp"
             app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_logo">
+            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@={signVM.email}"
+                android:hint="@string/hint_user"
                 android:paddingStart="16dp"
-                android:hint="@string/hint_user"/>
+                android:text="@={signVM.email}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -160,7 +148,7 @@
                 android:layout_marginEnd="12dp"
                 android:layout_weight="1"/>
 
-            <androidx.appcompat.widget.AppCompatButton
+            <com.google.android.gms.common.SignInButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"

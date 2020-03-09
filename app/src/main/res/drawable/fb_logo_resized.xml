@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+
+    <item>
+        <shape android:shape="rectangle"
+            android:tint="@color/com_facebook_blue">
+            <corners android:radius="4dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:drawable="@drawable/fb_logo"
+        android:width="32dp"
+        android:height="32dp"
+        android:top="4dp"
+        android:bottom="4dp"
+        android:left="@dimen/app_margin_medium"
+        />
+
+</layer-list >

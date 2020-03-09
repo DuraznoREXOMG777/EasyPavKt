@@ -10,7 +10,7 @@
         tools:context=".modules.signIn.SignInActivity">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/image_logo"
+            android:id="@+id/image_register_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -22,7 +22,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/image_logo"
+            app:layout_constraintTop_toBottomOf="@id/image_register_logo"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="48dp"
             android:layout_marginStart="24dp"
@@ -37,7 +37,7 @@
             android:layout_marginHorizontal="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_logo">
+            app:layout_constraintTop_toBottomOf="@id/image_register_logo">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"

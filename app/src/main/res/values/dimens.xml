@@ -70,4 +70,5 @@
 
     <!-- place_dialog -->
     <dimen name="place_dialog_icon_size">24dp</dimen>
+    <dimen name="splash_top_margin">147dp</dimen>
 </resources>

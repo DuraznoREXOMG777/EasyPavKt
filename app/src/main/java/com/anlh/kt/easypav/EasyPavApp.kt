@@ -4,6 +4,8 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import com.anlh.kt.easypav.core.AppPreferencesHelper
+import com.facebook.FacebookSdk
+import com.facebook.appevents.AppEventsLogger
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -16,6 +18,8 @@ class EasyPavApp : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
+        FacebookSdk.sdkInitialize(applicationContext);
+        AppEventsLogger.activateApp(this);
     }
 
     companion object {

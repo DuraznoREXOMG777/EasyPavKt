@@ -24,8 +24,9 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         Timer().schedule(1500){
-            startActivity(Intent(this@SplashActivity,
-                if(AppUtil.appPreferencesHelper.getFirstOpen()) GuideActivity::class.java else SignInActivity::class.java))
+            startActivity(Intent(this@SplashActivity, GuideActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+                //if(AppUtil.appPreferencesHelper.getFirstOpen()) GuideActivity::class.java else SignInActivity::class.java))
+            super.finish()
         }
     }
 }

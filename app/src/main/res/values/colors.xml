@@ -11,5 +11,9 @@
     <!-- button colors -->
     <color name="grayButtons">#383838</color>
 
+    <!-- Base Colors -->
+    <color name="orangeBackground">#F4B93B</color>
+    <color name="color_text_black">#2C2C2C</color>
+
 
 </resources>

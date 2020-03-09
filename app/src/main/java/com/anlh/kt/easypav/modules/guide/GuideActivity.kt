@@ -2,21 +2,19 @@ package com.anlh.kt.easypav.modules.guide
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager2.widget.ViewPager2
 import com.anlh.kt.easypav.BR
-import com.anlh.kt.easypav.EasyPavApp
 import com.anlh.kt.easypav.R
 import com.anlh.kt.easypav.data.model.Guide
-import com.anlh.kt.easypav.modules.guide.view.GuideAdapter
 import com.anlh.kt.easypav.databinding.ActivityGuideBinding
+import com.anlh.kt.easypav.modules.guide.view.GuideAdapter
 import com.anlh.kt.easypav.modules.guide.viewModel.GuideVM
 import com.anlh.kt.easypav.modules.signIn.SignInActivity
+import com.anlh.kt.easypav.util.AppConstants
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.highflyers.commonresources.AppBaseActivity
@@ -83,8 +81,11 @@ class GuideActivity : AppBaseActivity<ActivityGuideBinding, GuideVM>() {
     private fun moveNext(current: Int){
         if(current < guideBinding.viewPager.adapter?.itemCount?.minus(1) ?: 0)
             guideBinding.viewPager.currentItem = current+1
-        else if(guideBinding.btnContinue.text == resources.getText(R.string.button_finish))
-            startActivity(Intent(this@GuideActivity, SignInActivity::class.java))
+        else if(guideBinding.btnContinue.text == resources.getText(R.string.button_finish)) {
+            startActivity(Intent(this@GuideActivity, SignInActivity::class.java)
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+            this.finish()
+        }
     }
 
     private fun skip(){
@@ -93,10 +94,10 @@ class GuideActivity : AppBaseActivity<ActivityGuideBinding, GuideVM>() {
 
     private fun generateDummyData(): List<AppBaseItem> {
         val data = LinkedList<AppBaseItem>()
-        data.add(Guide("Texto de prueba 1", "https://dwdqz3611m4qq.cloudfront.net/wp_content/uploads/fearless-accounting-guide-795x450.png?mtime=20190724224646"))
-        data.add(Guide("Texto de prueba 2", "https://dwdqz3611m4qq.cloudfront.net/wp_content/uploads/fearless-accounting-guide-795x450.png?mtime=20190724224646"))
-        data.add(Guide("Texto de prueba 3", "https://dwdqz3611m4qq.cloudfront.net/wp_content/uploads/fearless-accounting-guide-795x450.png?mtime=20190724224646"))
-        data.add(Guide("Texto de prueba 4", "https://dwdqz3611m4qq.cloudfront.net/wp_content/uploads/fearless-accounting-guide-795x450.png?mtime=20190724224646"))
+        data.add(Guide("Texto de prueba 1", "https://dwdqz3611m4qq.cloudfront.net/wp_content/uploads/fearless-accounting-guide-795x450.png?mtime=20190724224646", AppConstants.GUIDE_VIEW_INIT))
+        data.add(Guide("Texto de prueba 2", "https://dwdqz3611m4qq.cloudfront.net/wp_content/uploads/fearless-accounting-guide-795x450.png?mtime=20190724224646", AppConstants.GUIDE_VIEW_RESUME))
+        //data.add(Guide("Texto de prueba 3", "https://dwdqz3611m4qq.cloudfront.net/wp_content/uploads/fearless-accounting-guide-795x450.png?mtime=20190724224646"))
+        //data.add(Guide("Texto de prueba 4", "https://dwdqz3611m4qq.cloudfront.net/wp_content/uploads/fearless-accounting-guide-795x450.png?mtime=20190724224646"))
         return data
     }
 
